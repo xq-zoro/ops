@@ -12,16 +12,16 @@ from application.settings import BASE_DIR
 
 # 使用mysql时，改为此配置
 DATABASE_ENGINE = "django.db.backends.mysql"
-DATABASE_NAME = 'xiaoqiang' # mysql 时使用
+DATABASE_NAME = 'dvadmin' # mysql 时使用
 
 # 数据库地址 改为自己数据库地址
-DATABASE_HOST = "123.56.51.60"
+DATABASE_HOST = "43.140.202.151"
 # # 数据库端口
-DATABASE_PORT = 30005
+DATABASE_PORT = 3306
 # # 数据库用户名
 DATABASE_USER = "root"
 # # 数据库密码
-DATABASE_PASSWORD = "gmQoO6jO9DNRqgPvT2X5wLS"
+DATABASE_PASSWORD = "Xq.19950803"
 
 # 表前缀
 TABLE_PREFIX = "dvadmin_"
@@ -29,7 +29,7 @@ TABLE_PREFIX = "dvadmin_"
 # ******** redis配置，无redis 可不进行配置  ******** #
 # ================================================= #
 REDIS_PASSWORD = '123456'
-REDIS_HOST = '127.0.0.1'
+REDIS_HOST = '43.140.202.151'
 REDIS_URL = f'redis://:{REDIS_PASSWORD or ""}@{REDIS_HOST}:6379'
 # ================================================= #
 # ****************** 功能 启停  ******************* #
