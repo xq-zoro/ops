@@ -39,13 +39,13 @@ import websocket from '@/api/websocket'
 import ElementUI from 'element-ui'
 import VForm from 'vform-builds'
 
-//引入element-ui样式
+// 引入element-ui样式
 import 'element-ui/lib/theme-chalk/index.css'
-//引入VForm样式
+// 引入VForm样式
 import 'vform-builds/dist/VFormDesigner.css'
 
 Vue.config.productionTip = false
-//全局注册element-ui、VForm(同时注册了v-form-designe、v-form-render等组件)
+// 全局注册element-ui、VForm(同时注册了v-form-designe、v-form-render等组件)
 Vue.use(ElementUI)
 Vue.use(VForm)
 
