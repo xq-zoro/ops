@@ -17,7 +17,7 @@ DATABASE_ENGINE = "django.db.backends.mysql"
 DATABASE_NAME = 'dvadmin' # mysql 时使用
 
 # 数据库地址 改为自己数据库地址
-DATABASE_HOST = "43.140.202.151"
+DATABASE_HOST = "127.0.0.1"
 # # 数据库端口
 DATABASE_PORT = 3306
 # # 数据库用户名
@@ -31,7 +31,7 @@ TABLE_PREFIX = "dvadmin_"
 # ******** redis配置，无redis 可不进行配置  ******** #
 # ================================================= #
 REDIS_PASSWORD = 'dvadmin123456'
-REDIS_HOST = '43.140.202.151'
+REDIS_HOST = '127.0.0.1'
 REDIS_URL = f'redis://:{REDIS_PASSWORD or ""}@{REDIS_HOST}:6379'
 # ================================================= #
 # ****************** 功能 启停  ******************* #
