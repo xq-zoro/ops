@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ================================================= #
 # ******************** 动态配置 ******************** #
 # ================================================= #
-if bool(os.environ.get("debug", "True")):
+if os.environ.get("debug", "True") == "True":
     from conf.env_local import *
 else:
     from conf.env_pro import *
