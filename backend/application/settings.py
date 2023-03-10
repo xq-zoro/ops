@@ -20,8 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ================================================= #
 # ******************** 动态配置 ******************** #
 # ================================================= #
+if bool(os.environ.get("debug", "True")):
+    from conf.env_local import *
+else:
+    from conf.env_pro import *
 
-from conf.env import *
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -397,6 +400,7 @@ DICTIONARY_CONFIG = {}
 TENANT_SHARED_APPS = []
 # 插件 urlpatterns
 PLUGINS_URL_PATTERNS = []
+# ********** 一键导入插件配置开始 **********
 # ********** 一键导入插件配置开始 **********
 # 例如:
 # from dvadmin_upgrade_center.settings import *    # 升级中心
