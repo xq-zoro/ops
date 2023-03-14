@@ -2,6 +2,7 @@ import { request } from '@/api/service'
 
 export const urlPrefix = '/api/v1/tool/workflow/template/'
 
+
 export function GetList (query) {
   return request({
     url: urlPrefix,
@@ -42,7 +43,7 @@ export function DelObj (id) {
 // 通过 工单实例 ID 获取 工单流程节点详情
 export function GetTemplateDetails(query) {
   return request({
-    url: urlPrefix + "node/",
+    url: "/api/v1/tool/workflow/template_node/",
     method: 'get',
     params: { ...query }
   })

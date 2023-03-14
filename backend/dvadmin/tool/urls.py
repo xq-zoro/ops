@@ -26,8 +26,8 @@ system_url.register(r'workflow/template', v_workflow_info.TemplateViewSet, basen
 
 workflow_urls = [
     path('workflow/process_choices/', v_workflow_info.ProcessViewSet.as_view({'get': 'process_data', })),
-    path('workflow/template/form/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_data', 'put': 'update_data', })),
-    path('workflow/template/node/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_template_node'}), name="工单模板的流转节点"),
+    path('workflow/template_form/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_data', 'put': 'update_data', })),
+    path('workflow/template_node/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_template_node'}), name="工单模板的流转节点"),
 ]
 
 urlpatterns = []
