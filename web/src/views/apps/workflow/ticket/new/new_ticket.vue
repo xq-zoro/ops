@@ -67,7 +67,7 @@ export default {
       this.saveFromData()
       // 通过 button 名称 判断将进行的操作
       if (buttonName === "提交"){
-        console.log("【提交按钮】")
+        console.log('【提交按钮】')
       }else if(buttonName === "保存"){
         console.log("【保存按钮】")
       }

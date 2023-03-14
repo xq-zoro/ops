@@ -129,7 +129,8 @@ class ProcessViewSet(CustomModelViewSet):
         """获取当前用户信息"""
         data = []
         for i in m_workflow.Process_Choices:
-            data.append({"label": i[1], "value": i[0]})
+            data.append({"label": i[1], "value": str(i[0])})
+
         return DetailResponse(data=data)
 
 
@@ -164,7 +165,7 @@ class TemplateViewSet(CustomModelViewSet):
 
     @action(methods=["GET"], detail=False)
     def get_data(self, request):
-        """获取当前用户信息"""
+        """ 获取当前用户信息 """
         id = request.query_params.get("id", None)
         obj = m_workflow.Template.objects.get(id=id)
         data = json.loads(obj.field_settings)

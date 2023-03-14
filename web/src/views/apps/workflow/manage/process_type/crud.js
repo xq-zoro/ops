@@ -31,7 +31,7 @@ export const crudOptions = (vm) => {
       custom: [{
         show (index, row) {return true},
         disabled () { return !vm.hasPermissions('Update') },
-        text: ' 流程节点',
+        text: ' 流转过程',
         type: 'warning',
         size: 'small',
         emit: 'createPermission'

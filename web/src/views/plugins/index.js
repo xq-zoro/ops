@@ -74,7 +74,7 @@ export const plugins = async function install (Vue, options) {
       }
     }
   })
-  console.log('注册成功插件：', components)
+  // console.log('注册成功插件：', components)
   window.pluginsAll = components
   return components
 }

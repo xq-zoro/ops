@@ -7,7 +7,7 @@
     @date：     2023/1/10 9:05
     @describe： 工具路由
 """
-from django.urls import path
+from django.urls import path, re_path
 from rest_framework import routers
 
 from dvadmin.tool.views import v_page_one, v_workflow_info
@@ -24,11 +24,14 @@ system_url.register(r'workflow/process', v_workflow_info.ProcessViewSet, basenam
 system_url.register(r'workflow/template', v_workflow_info.TemplateViewSet, basename="工单模板")
 
 
-urlpatterns = [
-    path('workflow/process/choices/', v_workflow_info.ProcessViewSet.as_view({'get': 'process_data', })),
+workflow_urls = [
+    path('workflow/process_choices/', v_workflow_info.ProcessViewSet.as_view({'get': 'process_data', })),
     path('workflow/template/form/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_data', 'put': 'update_data', })),
     path('workflow/template/node/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_template_node'}), name="工单模板的流转节点"),
 ]
 
+urlpatterns = []
+
 urlpatterns += system_url.urls
+urlpatterns += workflow_urls
 
