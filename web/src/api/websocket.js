@@ -5,6 +5,7 @@ function initWebSocket (e) {
   const token = util.cookies.get('token')
   if (token) {
     const wsUri = util.wsBaseURL() + 'ws/' + token + '/'
+    console.log("wsUri:", wsUri)
     this.socket = new WebSocket(wsUri)// 这里面的this都指向vue
     this.socket.onerror = webSocketOnError
     this.socket.onmessage = webSocketOnMessage
@@ -13,13 +14,8 @@ function initWebSocket (e) {
 }
 
 function webSocketOnError (e) {
-  ElementUI.Notification({
-    title: '',
-    message: 'WebSocket连接发生错误' + JSON.stringify(e),
-    type: 'error',
-    position: 'bottom-right',
-    duration: 3000
-  })
+  console.log("【webSocketOnError】", e)
+  // ElementUI.Notification({title: '', message: 'WebSocket连接发生错误' + JSON.stringify(e), type: 'error', position: 'bottom-right', duration: 3000})
 }
 
 /**
@@ -29,30 +25,13 @@ function webSocketOnError (e) {
  */
 function webSocketOnMessage (e) {
   const data = JSON.parse(e.data)
+  console.log("【webSocketOnMessage】", data)
   if (data.contentType === 'SYSTEM') {
-    ElementUI.Notification({
-      title: 'websocket',
-      message: data.content,
-      type: 'success',
-      position: 'bottom-right',
-      duration: 3000
-    })
+    ElementUI.Notification({title: 'websocket', message: data.content, type: 'success', position: 'bottom-right', duration: 3000})
   } else if (data.contentType === 'ERROR') {
-    ElementUI.Notification({
-      title: '',
-      message: data.content,
-      type: 'error',
-      position: 'bottom-right',
-      duration: 0
-    })
+    ElementUI.Notification({title: '', message: data.content, type: 'error', position: 'bottom-right', duration: 0})
   } else if (data.contentType === 'INFO') {
-    ElementUI.Notification({
-      title: '温馨提示',
-      message: data.content,
-      type: 'success',
-      position: 'bottom-right',
-      duration: 0
-    })
+    ElementUI.Notification({title: '温馨提示', message: data.content, type: 'success', position: 'bottom-right', duration: 0})
   } else {
     const { content } = data
     if (content.model === 'message_center') {
@@ -64,13 +43,8 @@ function webSocketOnMessage (e) {
 // 关闭websiocket
 function closeWebsocket () {
   console.log('连接已关闭...')
-  ElementUI.Notification({
-    title: 'websocket',
-    message: '连接已关闭...',
-    type: 'danger',
-    position: 'bottom-right',
-    duration: 3000
-  })
+  console.log("【closeWebsocket】")
+  // ElementUI.Notification({title: 'websocket', message: '连接已关闭...', type: 'danger', position: 'bottom-right', duration: 3000})
 }
 
 /**

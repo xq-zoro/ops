@@ -74,7 +74,7 @@ export const crudOptions = (vm) => {
         title: '属性', key: 'status', sortable: true, type: 'select', align: 'center',
         search: { disabled: false, component: {props: {clearable: true} } }, width: 140,
         dict: {
-          url: '/api/v1/tool/workflow/process_choices/',
+          url: '/api/v1/tool/workflow/process/choices/',
           label: 'label',
           value: 'value',
         },

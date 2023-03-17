@@ -17,21 +17,23 @@ system_url = routers.SimpleRouter()
 system_url.register(r'test/page_one', v_page_one.PageOneViewSet)
 
 # 工单系统
-system_url.register(r'workflow/type', v_workflow_info.TypeViewSet, basename="工单类别")
-system_url.register(r'workflow/node', v_workflow_info.NodeViewSet, basename="流转节点")
-system_url.register(r'workflow/process_type', v_workflow_info.ProcessTypeViewSet, basename="流转类别")
-system_url.register(r'workflow/process', v_workflow_info.ProcessViewSet, basename="流转过程")
-system_url.register(r'workflow/template', v_workflow_info.TemplateViewSet, basename="工单模板")
+system_url.register('workflow/type', v_workflow_info.TypeViewSet, basename="工单类别")
+system_url.register('workflow/node', v_workflow_info.NodeViewSet, basename="流转节点")
+system_url.register('workflow/process_type', v_workflow_info.ProcessTypeViewSet, basename="流转类别")
+system_url.register('workflow/process', v_workflow_info.ProcessViewSet, basename="流转过程")
+system_url.register('workflow/template', v_workflow_info.TemplateViewSet, basename="工单模板")
 
 
 workflow_urls = [
-    path('workflow/process_choices/', v_workflow_info.ProcessViewSet.as_view({'get': 'process_data', })),
-    path('workflow/template_form/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_data', 'put': 'update_data', })),
-    path('workflow/template_node/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_template_node'}), name="工单模板的流转节点"),
+    re_path('workflow/process/choices/', v_workflow_info.ProcessViewSet.as_view({'get': 'process_data', })),
+    re_path('workflow/template/form/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_data', 'put': 'update_data', })),
+    re_path('workflow/template/node/', v_workflow_info.TemplateViewSet.as_view({'get': 'get_template_node'}), name="工单模板的流转节点"),
 ]
 
 urlpatterns = []
 
-urlpatterns += system_url.urls
 urlpatterns += workflow_urls
+
+urlpatterns += system_url.urls
+
 

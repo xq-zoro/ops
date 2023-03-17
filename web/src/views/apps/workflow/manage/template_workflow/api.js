@@ -43,7 +43,7 @@ export function DelObj (id) {
 // 通过 工单实例 ID 获取 工单流程节点详情
 export function GetTemplateDetails(query) {
   return request({
-    url: "/api/v1/tool/workflow/template_node/",
+    url: "/api/v1/tool/workflow/template/node/",
     method: 'get',
     params: { ...query }
   })

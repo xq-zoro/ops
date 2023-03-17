@@ -44,6 +44,7 @@ def request_data(scope):
     qs = urllib.parse.parse_qs(query_string)
     return qs
 
+
 class DvadminWebSocket(AsyncJsonWebsocketConsumer):
     async def connect(self):
         try:
@@ -66,7 +67,6 @@ class DvadminWebSocket(AsyncJsonWebsocketConsumer):
                 await self.send_json(set_message('system', 'TEXT', {"model":'message_center',"unread":unread_count}))
         except InvalidSignatureError:
             await self.disconnect(None)
-
 
     async def disconnect(self, close_code):
         # Leave room group
@@ -93,6 +93,7 @@ class MegCenter(DvadminWebSocket):
 
     async def push_message(self, event):
         message = event['json']
+        print(message)
         await self.send(text_data=json.dumps(message))
 
 
@@ -101,7 +102,7 @@ def websocket_push(user_id, message):
     主动推送消息
     """
     username = "user_"+str(user_id)
-    print(103,message)
+    print(103, message)
     channel_layer = get_channel_layer()
     async_to_sync(channel_layer.group_send)(
     username,

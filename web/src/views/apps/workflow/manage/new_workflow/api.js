@@ -1,11 +1,11 @@
 import { request } from '@/api/service'
 
-export const urlPrefix = '/api/v1/tool/workflow/'
+export const urlPrefix = '/api/v1/tool/workflow/template/form/'
 
 
 export function DetailsObj (id) {
   return request({
-    url: urlPrefix + 'template_form/',
+    url: urlPrefix,
     method: 'get',
     params: { id: id }
   })
@@ -14,7 +14,7 @@ export function DetailsObj (id) {
 
 export function UpdateObj (obj) {
   return request({
-    url: urlPrefix + 'template_form/',
+    url: urlPrefix,
     method: 'put',
     data: obj
   })
