@@ -19,16 +19,16 @@ DATABASE_HOST = "43.140.202.151"
 # # 数据库端口
 DATABASE_PORT = 3306
 # # 数据库用户名
-DATABASE_USER = "dvadmin"
+DATABASE_USER = "root"
 # # 数据库密码
-DATABASE_PASSWORD = "dvadmin123456"
+DATABASE_PASSWORD = "1uRJHG5*NlWlEG5k"
 
 # 表前缀
 TABLE_PREFIX = "dvadmin_"
 # ================================================= #
 # ******** redis配置，无redis 可不进行配置  ******** #
 # ================================================= #
-REDIS_PASSWORD = 'dvadmin123456'
+REDIS_PASSWORD = '1uRJHG5*NlWlEG5k'
 REDIS_HOST = '43.140.202.151'
 REDIS_URL = f'redis://:{REDIS_PASSWORD or ""}@{REDIS_HOST}:6379'
 # ================================================= #
